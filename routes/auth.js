@@ -5,7 +5,7 @@ var { userModel, otpModel } = require('../dbrepo/modules')
 var router = express.Router();
 var SERVER_SECRET = process.env.SECRET || "1234";
 var postmark = require("postmark");
-var client = new postmark.ServerClient("c6388475-9e85-4786-8fd1-788ada8c969a");
+var client = new postmark.ServerClient("abc");
 
 router.post("/signup", (req, res, next) => {
 
