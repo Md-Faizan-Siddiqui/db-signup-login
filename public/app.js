@@ -1,8 +1,10 @@
+// var url = "http://localhost:3000"
+var url = 'https://db-signup-login.herokuapp.com'
 function userSignup() {
     console.log(document.getElementById('name').value)
     axios({
         method: 'post',
-        url: 'https://db-signup-login.herokuapp.com/signup',
+        url: url + '/signup',
         data: {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
@@ -27,7 +29,7 @@ function userSignup() {
 function login() {
     axios({
         method: 'post',
-        url: 'https://db-signup-login.herokuapp.com/login',
+        url: url + '/login',
         data: {
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
@@ -50,7 +52,7 @@ function login() {
 function getProfile() {
     axios({
         method: 'get',
-        url: 'https://db-signup-login.herokuapp.com/profile',
+        url: url + '/profile',
         credentials: 'include',
     }).then((response) => {
         console.log(response);
@@ -70,7 +72,7 @@ function forgetPassword() {
     localStorage.setItem('email', email)
     axios({
         method: 'post',
-        url: 'https://db-signup-login.herokuapp.com/forget-password',
+        url: url + '/forget-password',
         data: {
             email: email,
         },
@@ -94,7 +96,7 @@ function forgetPassword2() {
     let getEmail = localStorage.getItem('email')
     axios({
         method: 'post',
-        url: 'https://db-signup-login.herokuapp.com/forget-password-2',
+        url: url + '/forget-password-2',
         data: {
             email: getEmail,
             newPassword: document.getElementById('newPassword').value,
@@ -113,7 +115,7 @@ function forgetPassword2() {
 function logout() {
     axios({
         method: 'post',
-        url: 'https://db-signup-login.herokuapp.com/logout',
+        url: url + '/logout',
     }).then((response) => {
         console.log(response);
         location.href = "./login.html"
